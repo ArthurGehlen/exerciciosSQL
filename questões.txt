@@ -1,0 +1,6 @@
+1) categoryid, categoryname e description
+  select * from categories
+
+2) select categoryid, categoryname from categories 
+
+3) select categoryid, categoryname from categories order by categoryname asc
