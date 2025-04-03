@@ -4,3 +4,52 @@
 2) select categoryid, categoryname from categories 
 
 3) select categoryid, categoryname from categories order by categoryname asc
+
+4) select productid, productname from products order by price desc
+
+5) select productid,productname from products where price > 50 order by price desc
+
+6) select productid,productname from products where price >= 50 and price <= 200 order by price asc
+
+7) select productid, productname, categoryid from products where categoryid = 2 or categoryid = 4 or categoryid = 6
+
+8) select productid, productname, categoryid from products where categoryid = 5
+
+9) select productid, productname, categoryid from products where productname like '%TOFU%'
+
+10) select productid, productname, categoryid from products where productname like 'C%'
+
+11) 77 
+    select productid from products order by productid desc
+
+12) select productname from products order by price
+
+13) select min(price) as menor_preco, max(price) as maior_preco, avg(price) as preco_medio FROM products where categoryid = 5
+
+14) select min(price) as menor_preco, max(price) as maior_preco, avg(price) as preco_medio FROM products
+
+15) select categoryid, min(price) as menor_preco, max(price) as maior_preco, avg(price) as preco_medio from products group by categoryid
+
+16) select categoryid, count(*) as quantidade_produtos from products group by categoryid
+
+17) select orderid, sum(quantity) as quantidade_produtos from orderdetails group by orderid
+
+18) select supplierid, categoryid, count(*) as quantidade_produtos from products group by supplierid, categoryid
+
+19) select supplierid from products group by supplierid having count(*) > 3
+
+20) select productid, productname, price from products where price = (slect max(price) from products) or price = (select min(price) from products);
+
+21) -- Produtos da categoria Pescados
+    select productid, productname from products where categoryid = (select categoryid from categories where categoryname = 'Pescados')
+
+    -- Produtos que não são da categoria Pescados
+    select productid, productname from products where categoryid != (select categoryid from categories where categoryname = 'Pescados')
+
+22) select orderid, customerid, orderdate from orders where customerid in (select customerid from customers where country = 'BRASIL')
+
+23) select productid, productname, price from products where supplierid in (select supplierid from suppliers where country = 'Brazil') order by price desc limit 1
+
+24) select productid, quantity, price from orderdetails join products using (productid)
+
+25) select categoryid, categoryname, count(productid) from categories join products using(categoryid) group by categoryid, categoryname
